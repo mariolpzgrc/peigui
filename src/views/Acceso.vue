@@ -16,32 +16,35 @@
           </v-toolbar>
         </div>
         <v-col>
-          <v-form ref="form" v-model="valid" lazy-validation>
-            <v-row justify="center">
+          <v-row justify="center" align="center">
+            <v-form ref="form" v-model="valid" lazy-validation>
               <v-col>
-                <v-spacer></v-spacer>
-                <v-text-field
-                  v-model="email"
-                  :rules="emailRules"
-                  label="Correo"
-                  outlined
-                  required
-                ></v-text-field>
-
-                <v-text-field
-                  v-model="password"
-                  :rules="emailRules"
-                  outlined
-                  label="Contraseña"
-                  required
-                ></v-text-field>
-
-                <v-btn color="primary" dark class="mr-4" @click="login">
-                  Iniciar Sesión
-                </v-btn>
+                <v-flex xs12 sm12 md12>
+                  <v-text-field
+                    v-model="email"
+                    :rules="emailRules"
+                    label="Correo"
+                    outlined
+                    required
+                  ></v-text-field
+                ></v-flex>
+                <v-flex xs12 sm12 md12>
+                  <v-text-field
+                    v-model="password"
+                    :rules="emailRules"
+                    outlined
+                    label="Contraseña"
+                    required
+                  ></v-text-field
+                ></v-flex>
+                <v-flex xs12 md12 sm12>
+                  <v-btn color="primary" dark class="mr-4" @click="login">
+                    Iniciar Sesión
+                  </v-btn></v-flex
+                >
               </v-col>
-            </v-row>
-          </v-form>
+            </v-form>
+          </v-row>
         </v-col>
       </v-flex>
     </v-row>
