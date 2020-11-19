@@ -16,7 +16,6 @@
           gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
         ></v-img>
       </template>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
       <v-toolbar-title>Sistema de Proyecto Educativo Innovador</v-toolbar-title>
       <v-spacer></v-spacer>
       <template v-slot:extension>
@@ -24,12 +23,35 @@
           <v-tab>Lineamientos</v-tab>
           <v-tab>Registrar PEI</v-tab>
           <v-tab>Evaluar PEI</v-tab>
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-tab color="white" dark text v-bind="attrs" v-on="on">
+                Admimistración
+              </v-tab>
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="(item, index) in items"
+                :key="index"
+                @click="selectionSection(item)"
+              >
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </v-tabs>
       </template>
     </v-app-bar>
     <v-main>
-      <v-container fluid>
-        <router-view></router-view>
+      <v-container
+        grid-list
+        fill-height
+        fil-width
+        style="height: 100vh; max-height: 100%"
+        fluid
+        app
+      >
+        <router-view :key="$route.fullPath">></router-view>
       </v-container>
     </v-main>
     <v-footer color="primary lighten-1" padless>

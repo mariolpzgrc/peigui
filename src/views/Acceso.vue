@@ -5,7 +5,7 @@
         <v-img
           :width="955"
           :height="950"
-          :max-height="894"
+          :max-height="1000"
           src="https://dsia.uv.mx/miuv/escritorio/imgsMiUV/login2.jpg"
         ></v-img>
       </v-flex>
