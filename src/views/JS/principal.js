@@ -10,6 +10,9 @@ export default {
                     this.$router.push({ name: "Usuarios" });
                 break;
             }
+        },
+        abrirlineamientos(){
+            this.$router.push({name: "Lineamientos"});
         }
     }
 }

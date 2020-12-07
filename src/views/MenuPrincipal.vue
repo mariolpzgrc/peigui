@@ -1,14 +1,13 @@
 <template>
   <v-app>
     <v-app-bar
-      absolute
+      app
       color="#6A76AB"
       dark
       shrink-on-scroll
       prominent
       src="https://gestioneducativa.educaweb.com/wp-content/uploads/2016/04/Ejemplos-de-proyectos-educativos.jpg"
       fade-img-on-scroll
-      scroll-target="#scrolling-tecniques-3"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -20,7 +19,7 @@
       <v-spacer></v-spacer>
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab>Lineamientos</v-tab>
+          <v-tab @click="abrirlineamientos()">Lineamientos</v-tab>
           <v-tab>Registrar PEI</v-tab>
           <v-tab>Evaluar PEI</v-tab>
           <v-menu offset-y>
@@ -44,14 +43,10 @@
     </v-app-bar>
     <v-main>
       <v-container
-        grid-list
-        fill-height
-        fil-width
-        style="height: 100vh; max-height: 100%"
         fluid
         app
       >
-        <router-view :key="$route.fullPath">></router-view>
+        <router-view></router-view>
       </v-container>
     </v-main>
     <v-footer color="primary lighten-1" padless>
