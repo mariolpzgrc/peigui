@@ -6,7 +6,7 @@
           :width="955"
           :height="950"
           :max-height="1000"
-          src="https://dsia.uv.mx/miuv/escritorio/imgsMiUV/login2.jpg"
+          src="https://escuelasparalajusticiasocial.net/wp-content/uploads/2017/12/aprendizaje-basado-en-problemas-justicia-social.jpg"
         ></v-img>
       </v-flex>
       <v-flex xs12 md6 sm6>
@@ -23,7 +23,7 @@
                 <v-flex xs12 sm12 md12>
                   <v-text-field
                     v-model="correo"
-                    :rules="emailRules"
+                    :rules="reglas.email"
                     label="Correo"
                     autocomplete="new-password"
                     outlined
@@ -37,7 +37,7 @@
                     :type="show ? 'text' : 'password'"
                     @click:append="show = !show"
                     autocomplete="new-password"
-                    :rules="[rules.required]"
+                    :rules="[reglas.requerido]"
                     outlined
                     label="Contraseña"
                     required
@@ -86,7 +86,7 @@
                                     :append-icon="
                                       show1 ? 'mdi-eye' : 'mdi-eye-off'
                                     "
-                                    :rules="[rules.required]"
+                                    :rules="[reglas.requerido]"
                                     :type="show1 ? 'text' : 'password'"
                                     label="Nueva contraseña"
                                     @click:append="show1 = !show1"
@@ -98,7 +98,7 @@
                                     :append-icon="
                                       show2 ? 'mdi-eye' : 'mdi-eye-off'
                                     "
-                                    :rules="[rules.required]"
+                                    :rules="[reglas.requerido]"
                                     :type="show2 ? 'text' : 'password'"
                                     label="Ingrese de nuevo su contraseña"
                                     @click:append="show2 = !show2"
@@ -120,6 +120,120 @@
                               color="blue darken-1"
                               dark
                               @click="dialogPassword = false"
+                            >
+                              Aceptar
+                            </v-btn>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                    </v-row>
+                  </template>
+                </v-flex>
+                <v-flex xs12 md12 sm12>
+                  <template>
+                    <v-row justify="center">
+                      <v-dialog
+                        v-model="dialogRegistrarMaestro"
+                        persistent
+                        max-width="500px"
+                      >
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-btn
+                            color="primary"
+                            dark
+                            text
+                            v-bind="attrs"
+                            v-on="on"
+                          >
+                            Registrar Docente
+                          </v-btn>
+                        </template>
+                        <v-card>
+                          <v-card-title>
+                            <span class="headline">Registro de docente</span>
+                          </v-card-title>
+                          <v-card-text>
+                            <v-form
+                              ><v-container>
+                                <v-row>
+                                  <v-col cols="12" sm="10" md="10">
+                                    <v-text-field
+                                      label="Nombre"
+                                      outlined
+                                      dense
+                                      :rules="reglas.requerido"
+                                    >
+                                    </v-text-field>
+                                  </v-col>
+                                  <v-col cols="12" sm="10" md="10">
+                                    <v-text-field
+                                      label="Apellido Paterno"
+                                      :rules="reglas.requerido"
+                                      outlined
+                                      dense
+                                    ></v-text-field>
+                                  </v-col>
+                                  <v-col cols="12" sm="10" md="10">
+                                    <v-text-field
+                                      label="Apellido Materno"
+                                      :rules="reglas.requerido"
+                                      outlined
+                                      dense
+                                    ></v-text-field>
+                                  </v-col>
+                                  <v-col cols="12" sm="10" md="10">
+                                    <v-text-field
+                                      v-model="correo"
+                                      outlined
+                                      dense
+                                      :rules="[reglas.requerido, reglas.email]"
+                                      label="Correo electrónico"
+                                    ></v-text-field>
+                                  </v-col>
+                                  <v-col cols="12" sm="10" md="10">
+                                    <v-text-field
+                                      v-model="password"
+                                      dense
+                                      :rules="reglas.requerido"
+                                      :append-icon="
+                                        show1 ? 'mdi-eye' : 'mdi-eye-off'
+                                      "
+                                      outlined
+                                      :type="show3 ? 'text' : 'password'"
+                                      label="Nueva contraseña"
+                                      @click:append="show3 = !show3"
+                                    ></v-text-field>
+                                  </v-col>
+                                  <v-col cols="12" sm="10" md="10">
+                                    <v-text-field
+                                      v-model="passwordconfirm"
+                                      :append-icon="
+                                        show2 ? 'mdi-eye' : 'mdi-eye-off'
+                                      "
+                                      outlined
+                                      dense
+                                      :rules="reglas.requerido"
+                                      :type="show4 ? 'text' : 'password'"
+                                      label="Ingrese de nuevo su contraseña"
+                                      @click:append="show4 = !show4"
+                                    ></v-text-field>
+                                  </v-col> </v-row></v-container
+                            ></v-form>
+                          </v-card-text>
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                              color="blue darken-1"
+                              text
+                              @click="dialogRegistrarMaestro = false"
+                            >
+                              Cerrar
+                            </v-btn>
+                            <v-btn
+                              color="blue darken-1"
+                              dark
+                              rounded
+                              @click="dialogRegistrarMaestro = false"
                             >
                               Aceptar
                             </v-btn>

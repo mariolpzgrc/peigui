@@ -1,41 +1,83 @@
 export default {
     data: () => ({
         dialog: false,
+        show1: false,
         dialogDelete: false,
+        reglas: {
+            requerido: [v => !!v || "Este campo es requerido"],
+        },
         headers: [
             {
-                text: 'Dessert (100g serving)',
+                text: 'Número de Personal',
                 align: 'start',
                 sortable: false,
-                value: 'name',
+                value: 'numeroPersonal',
             },
-            { text: 'Calories', value: 'calories' },
-            { text: 'Fat (g)', value: 'fat' },
-            { text: 'Carbs (g)', value: 'carbs' },
-            { text: 'Protein (g)', value: 'protein' },
-            { text: 'Actions', value: 'actions', sortable: false },
+            { text: 'Nombre', value: 'nombre' },
+            { text: 'Apellido Paterno', value: 'apellidoPaterno' },
+            { text: 'Apellido Materno', value: 'apellidoMaterno' },
+            { text: 'Telefono', value: 'telefono' },
+            { text: 'Extensión', value: 'extension' },
+            { text: 'Celular', value: 'celular' },
+            { text: 'Correo Electrónico', value: 'email' },
+            { text: 'Facultad', value: 'facultad' },
+            { text: 'Acciones', value: 'actions', sortable: false },
+
         ],
-        desserts: [],
-        editedIndex: -1,
-        editedItem: {
-            name: '',
-            calories: 0,
-            fat: 0,
-            carbs: 0,
-            protein: 0,
+        usuarios: [],
+        facultades: [
+            'Facultad de Estadistica e Informática',
+            'Facultad de Biología',
+            'Facultad de Ciencias Agrícolas',
+            'Instituto de Neuroetología',
+            'Instituto de Investigaciones Biológicas',
+            'Instituto de Investigaciones Forestales',
+            'Instituto de Biotecnología y Ecología Aplicada',
+            'Centro de Investigaciones Tropicales',
+            'Centro de Ecoalfabetización y Diálogo de Saberes',
+            'Centro de Investigaciones Biomédicas',
+        ],
+        roles: [
+            'Administrador',
+            'Académico', 
+            'ABP'
+        ],
+        editedUsuarioIndex: -1,
+        editedUsuario: {
+            numeroPersonal: 0,
+            nombre: '',
+            apellidoPaterno: '',
+            apellidoMaterno: '',
+            telefono: '',
+            extension: '',
+            celular: '',
+            email: '',
+            facultad: '',
+            idFacultad: 0,
+            constrasena: '',
+            idRol: 0,
+            rol: ''
         },
-        defaultItem: {
-            name: '',
-            calories: 0,
-            fat: 0,
-            carbs: 0,
-            protein: 0,
+        defaultUsuario: {
+            numeroPersonal: 0,
+            nombre: '',
+            apellidoPaterno: '',
+            apellidoMaterno: '',
+            telefono: '',
+            extension: '',
+            celular: '',
+            email: '',
+            facultad: '',
+            idFacultad: 0,
+            constrasena: '',
+            idRol: 0,
+            rol: ''
         },
     }),
 
     computed: {
         formTitle() {
-            return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+            return this.editedUsuarioIndex === -1 ? 'Nuevo Usuario' : 'Editar Usuario'
         },
     },
 
@@ -54,118 +96,61 @@ export default {
 
     methods: {
         initialize() {
-            this.desserts = [
+            this.usuarios = [
                 {
-                    name: 'Frozen Yogurt',
-                    calories: 159,
-                    fat: 6.0,
-                    carbs: 24,
-                    protein: 4.0,
-                },
-                {
-                    name: 'Ice cream sandwich',
-                    calories: 237,
-                    fat: 9.0,
-                    carbs: 37,
-                    protein: 4.3,
-                },
-                {
-                    name: 'Eclair',
-                    calories: 262,
-                    fat: 16.0,
-                    carbs: 23,
-                    protein: 6.0,
-                },
-                {
-                    name: 'Cupcake',
-                    calories: 305,
-                    fat: 3.7,
-                    carbs: 67,
-                    protein: 4.3,
-                },
-                {
-                    name: 'Gingerbread',
-                    calories: 356,
-                    fat: 16.0,
-                    carbs: 49,
-                    protein: 3.9,
-                },
-                {
-                    name: 'Jelly bean',
-                    calories: 375,
-                    fat: 0.0,
-                    carbs: 94,
-                    protein: 0.0,
-                },
-                {
-                    name: 'Lollipop',
-                    calories: 392,
-                    fat: 0.2,
-                    carbs: 98,
-                    protein: 0,
-                },
-                {
-                    name: 'Honeycomb',
-                    calories: 408,
-                    fat: 3.2,
-                    carbs: 87,
-                    protein: 6.5,
-                },
-                {
-                    name: 'Donut',
-                    calories: 452,
-                    fat: 25.0,
-                    carbs: 51,
-                    protein: 4.9,
-                },
-                {
-                    name: 'KitKat',
-                    calories: 518,
-                    fat: 26.0,
-                    carbs: 65,
-                    protein: 7,
+                    numeroPersonal: 1,
+                    nombre: 'Martin',
+                    apellidoPaterno: 'Mata',
+                    apellidoMaterno: 'Montiel',
+                    telefono: '555-656-1245',
+                    extension: '1902',
+                    celular: '898-568-9452',
+                    email: 'mmata@uv.mx',
+                    facultad: 'Administración',
+                    idFacultad: 0,
+                    constrasena: '',
                 },
             ]
         },
 
         editItem(item) {
-            this.editedIndex = this.desserts.indexOf(item)
-            this.editedItem = Object.assign({}, item)
+            this.editedUsuarioIndex = this.usuarios.indexOf(item)
+            this.editedUsuario = Object.assign({}, item)
             this.dialog = true
         },
 
         deleteItem(item) {
-            this.editedIndex = this.desserts.indexOf(item)
-            this.editedItem = Object.assign({}, item)
+            this.editedUsuarioIndex = this.usuarios.indexOf(item)
+            this.editedUsuario = Object.assign({}, item)
             this.dialogDelete = true
         },
 
         deleteItemConfirm() {
-            this.desserts.splice(this.editedIndex, 1)
+            this.usuarios.splice(this.editedUsuarioIndex, 1)
             this.closeDelete()
         },
 
         close() {
             this.dialog = false
             this.$nextTick(() => {
-                this.editedItem = Object.assign({}, this.defaultItem)
-                this.editedIndex = -1
+                this.editedUsuario = Object.assign({}, this.defaultUsuario)
+                this.editedUsuarioIndex = -1
             })
         },
 
         closeDelete() {
             this.dialogDelete = false
             this.$nextTick(() => {
-                this.editedItem = Object.assign({}, this.defaultItem)
-                this.editedIndex = -1
+                this.editedUsuario = Object.assign({}, this.defaultUsuario)
+                this.editedUsuarioIndex = -1
             })
         },
 
         save() {
-            if (this.editedIndex > -1) {
-                Object.assign(this.desserts[this.editedIndex], this.editedItem)
+            if (this.editedUsuarioIndex > -1) {
+                Object.assign(this.usuarios[this.editedUsuarioIndex], this.editedUsuario)
             } else {
-                this.desserts.push(this.editedItem)
+                this.usuarios.push(this.editedUsuario)
             }
             this.close()
         },

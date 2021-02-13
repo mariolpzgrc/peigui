@@ -15,37 +15,45 @@
           gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
         ></v-img>
       </template>
-      <v-toolbar-title>Sistema de Proyecto Educativo Innovador</v-toolbar-title>
+
+      <v-app-bar-title>Proyecto Educativo Innovador</v-app-bar-title>
+
       <v-spacer></v-spacer>
       <template v-slot:extension>
-        <v-tabs align-with-title>
-          <v-tab @click="abrirlineamientos()">Lineamientos</v-tab>
-          <v-tab>Registrar PEI</v-tab>
-          <v-tab>Evaluar PEI</v-tab>
-          <v-menu offset-y>
+        <v-tabs v-model="activeTab" align-with-title slider-color="white">
+          <v-tab v-for="tab in tabs" :key="tab.id" :to="tab.route" exact>
+            {{ tab.name }}
+          </v-tab>
+        </v-tabs>
+      </template>
+       <v-menu
+            bottom
+            left
+          >
             <template v-slot:activator="{ on, attrs }">
-              <v-tab color="white" dark text v-bind="attrs" v-on="on">
-                Admimistración
-              </v-tab>
+              <v-btn
+                dark
+                icon
+                v-bind="attrs"
+                v-on="on"
+              >
+                <v-icon>mdi-dots-vertical</v-icon>
+              </v-btn>
             </template>
+
             <v-list>
               <v-list-item
-                v-for="(item, index) in items"
-                :key="index"
-                @click="selectionSection(item)"
+                v-for="(item, i) in items"
+                :key="i"
+                :to="item.link"
               >
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
-        </v-tabs>
-      </template>
     </v-app-bar>
     <v-main>
-      <v-container
-        fluid
-        app
-      >
+      <v-container fluid app>
         <router-view></router-view>
       </v-container>
     </v-main>

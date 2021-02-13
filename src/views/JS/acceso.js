@@ -10,21 +10,25 @@ export default {
         show: false,
         show1: false,
         show2: false,
+        show3: false,
+        show4: false,
         password: '',
         passwordconfirm: '',
         dialogPassword: false,
+        dialogRegistrarMaestro: false,
         correo: '',
         contrasena: '',
-        rules: {
-            required: value => !!value || 'Requerido',
-            rfcValido: v => /^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$/.test(v) || "Ingrese un RFC valido"
+        reglas: {
+            requerido: value => !!value || 'Campo requerido',
+            rfcValido: v => /^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))([A-Z\d]{3})?$/.test(v) || "Ingrese un RFC valido",
+            email: value => {
+                const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                return pattern.test(value) || 'Correo electronico invalido.'
+            },
 
         },
-        emailRules: [
-            v => !!v || 'El correo electrónico es requerido',
-            v => /.+@.+\..+/.test(v) || 'El correo debe ser válido',
-        ],
     }),
+
     methods: {
         iniciarSesion() {
             this.disabled = true;
@@ -35,7 +39,7 @@ export default {
             this.disabled = false;
             this.loading = false;
         },
-        cambiarContraseña(){
+        cambiarContraseña() {
             this.dialog = true;
         }
     }
