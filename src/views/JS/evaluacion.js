@@ -4,6 +4,7 @@ export default {
     data: () => ({
         dialogEvaluar: false,
         puntaje: 0,
+        fetchPeis:[],
         reglas: {
             requerido: [v => !!v || "Este campo es requerido"],
             participantesMaximo: [v => (v && v >= 5) || "Debe ser 1 a 5 participantes"],
@@ -37,18 +38,5 @@ export default {
         this.initialize();
     },
     methods: {
-        async fetchPeis(item) {
-            await pause(1500)
-            return fetch('/home/mariolpzgrc/Documentos/GitHub/peigui/src/views/JS/')
-                .then(res => res.json())
-                .then(json => (item.children.push(...json)))
-                .catch(err => console.warn(err))
-        },
-        increment () {
-            this.puntaje = parseInt(this.foo,10) + 1
-          },
-          decrement () {
-            this.puntaje = parseInt(this.foo,10) - 1
-          }
     }
 }

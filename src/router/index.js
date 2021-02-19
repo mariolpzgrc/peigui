@@ -7,7 +7,7 @@ import Lineamientos from '../views/Lineamientos.vue'
 import RegistroPEI from '../views/RegistroPEI.vue'
 import Bienio from '../views/PEIBienios.vue'
 import Evaluacion from '../views/EvaluarPEI.vue'
-
+import EvaluandoPEI from '../views/Evaluacion.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -26,7 +26,7 @@ const routes = [
         component: Lineamientos
       },
       {
-        path:'registro-pei',
+        path: 'registro-pei',
         component: RegistroPEI
       },
       {
@@ -35,7 +35,13 @@ const routes = [
       },
       {
         path: 'evaluacion',
-        component: Evaluacion
+        name: 'evaluacion',
+        component: Evaluacion,
+      },
+      {
+        path: './evaluando-pei',
+        name: 'evaluandoPei',
+        component: EvaluandoPEI
       },
       {
         path: '/usuarios',
@@ -44,7 +50,7 @@ const routes = [
       }
     ]
   }
-  
+
 ]
 
 const router = new VueRouter({

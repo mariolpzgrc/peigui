@@ -73,7 +73,15 @@
             <span>Al dar clic se abrira el PEI en una nueva pestaña</span>
           </v-tooltip>
         </v-row>
-        <template>
+        <v-row justify="center" class="text-left" tag="v-card-text">
+          <v-tooltip>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn depressed v-bind="attrs" v-on="on" :to="{name: 'evaluandoPei'}">Evaluar PEI</v-btn>
+            </template>
+            <span>Hay dar clic puede evaluar el PEI</span>
+          </v-tooltip>
+        </v-row>
+        <!--<template>
           <v-row justify="center">
             <v-dialog v-model="dialogEvaluar" persistent max-width="600px">
               <template v-slot:activator="{ on, attrs }">
@@ -117,7 +125,7 @@
               </v-card>
             </v-dialog>
           </v-row>
-        </template>
+        </template>-->
       </v-row>
     </v-container>
   </v-app>
