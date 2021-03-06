@@ -8,6 +8,10 @@ import RegistroPEI from '../views/RegistroPEI.vue'
 import Bienio from '../views/PEIBienios.vue'
 import Evaluacion from '../views/EvaluarPEI.vue'
 import EvaluandoPEI from '../views/Evaluacion.vue'
+import Invitacion from '../views/InvitacionEvaluacion.vue'
+import ActasEvaluacion from '../views/ActasEvaluacion.vue'
+import Evaluadores from '../views/AdministrarEvaluadores.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -24,6 +28,10 @@ const routes = [
       {
         path: '',
         component: Lineamientos
+      },
+      {
+        path: 'invitacion',
+        component: Invitacion
       },
       {
         path: 'registro-pei',
@@ -47,6 +55,14 @@ const routes = [
         path: '/usuarios',
         name: 'Usuarios',
         component: Usuarios
+      },
+      {
+        path: '/actas-de-evaluacion',
+        component: ActasEvaluacion
+      },
+      {
+        path: '/admisntrar-evaludores',
+        component: Evaluadores
       }
     ]
   }
