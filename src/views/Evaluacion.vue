@@ -40,7 +40,6 @@
             <v-btn rounded color="primary" @click="procesoEvaluacion = 2">
               Continuar
             </v-btn>
-            <v-btn text> Cancelar </v-btn>
           </v-stepper-content>
           <v-stepper-content step="2">
             <v-card-text>
@@ -458,7 +457,7 @@
                 </tbody>
               </template>
             </v-simple-table>
-            <div v-if="puntajeSuficienciaTotal < 80">
+            <div>
               <v-col cols="12" md="8">
                 <v-textarea
                   outlined
@@ -492,6 +491,7 @@
               v-if="(puntajeSuficienciaTotal) => 80"
               color="primary"
               @click="procesoEvaluacion = 3"
+              rounded
             >
               Continuar
             </v-btn>
@@ -502,7 +502,8 @@
             >
               Terminar
             </v-btn>
-            <v-btn text>Cancelar</v-btn>
+            <v-btn rounded text @click="procesoEvaluacion = 1">Cancelar</v-btn>
+            <v-btn dark text color="primary">Guardar</v-btn>
           </v-stepper-content>
           <v-stepper-content step="3">
             <v-card-text>
@@ -790,10 +791,20 @@
                 ></v-file-input>
               </v-col>
             </div>
-            <v-btn color="primary" @click="procesoEvaluacion = 4">
-              Continuar
+            <v-btn rounded color="primary" @click="procesoEvaluacion = 4">
+              Terminar
             </v-btn>
-            <v-btn text>Cancelar</v-btn>
+            <v-btn
+              color="primary"
+              rounded
+              text
+              @click.native="procesoEvaluacion = 2"
+              >Regresar</v-btn
+            >
+            <v-btn rounded text @click.native="procesoEvaluacion = 1"
+              >Cancelar</v-btn
+            >
+            <v-btn dark color="primary" rounded text>Guardar</v-btn>
           </v-stepper-content>
           <v-stepper-content step="4">
             <h1>¡Gracias por su participación!</h1>
@@ -802,6 +813,15 @@
                 >mdi-checkbox-marked-circle
               </v-icon>
             </v-row>
+            <v-spacer></v-spacer>
+            <v-btn
+              color="blue-grey"
+              class="ma-2 white--text"
+              @click="loader = 'loading3'"
+            >
+              Descargar acta
+              <v-icon right dark> mdi-cloud-download </v-icon>
+            </v-btn>
           </v-stepper-content>
         </v-stepper-items>
       </v-stepper>

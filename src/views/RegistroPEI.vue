@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-container>
-      <v-card class="mx-auto" color="#0E50A0" dark max-width="50%" >
+      <v-card class="mx-auto" color="#0E50A0" dark >
         <v-card-title>
           <v-img 
             class="elevation-6" 
@@ -24,7 +24,7 @@
           </v-row>
         </v-card-title>
       </v-card>
-      <v-card class="mx-auto" max-width="50%">
+      <v-card class="mx-auto">
         <v-card-text>
           <v-form ref="formularioPEI" v-model="formularioValido">
             <v-row>

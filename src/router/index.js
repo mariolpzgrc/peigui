@@ -61,7 +61,7 @@ const routes = [
         component: ActasEvaluacion
       },
       {
-        path: '/admisntrar-evaludores',
+        path: '/administrar-evaluadores',
         component: Evaluadores
       }
     ]
