@@ -47,6 +47,15 @@
                   </v-textarea>
               </v-col>
               <v-col cols="12" sm="6" md="8">
+                <v-textarea
+                  v-model="ambitoAplicacion"
+                  outlined
+                  :rules="reglas.requerido"
+                  label="3. Ambito de aplicación"
+                >
+                </v-textarea>              
+              </v-col>
+              <v-col cols="12" sm="6" md="8">
                 <v-menu 
                   ref="menu" 
                   v-model="menu" 
@@ -57,7 +66,7 @@
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field
                       v-model="fechaInicio"
-                      label="3. Fecha de Inicio"
+                      label="4. Fecha de Inicio"
                       append-icon="mdi-calendar"
                       outlined
                       :rules="reglas.requerido"
@@ -92,7 +101,7 @@
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field 
                       v-model="fechaTermino" 
-                      label="4. Fecha de término" 
+                      label="5. Fecha de término" 
                       append-icon="mdi-calendar" 
                       outlined
                       :rules="reglas.requerido" 
@@ -330,9 +339,20 @@
           </v-form>
         </v-card-text>
         <v-card-actions>
-          <v-btn depressed color="primary">
-            Enviar
-          </v-btn>
+          <v-row>
+          <v-col cols="12" sm="12" md="12">
+            <v-checkbox
+              v-model="checkbox"
+              label="¿Desea incorporar este proyecto a RUA?"
+            >
+            </v-checkbox>
+          </v-col>
+          <v-col cols="12" sm="12" md="12"> 
+            <v-btn depressed color="primary">
+              Enviar
+            </v-btn>
+            </v-col>
+            </v-row>
         </v-card-actions>
       </v-card>
     </v-container>

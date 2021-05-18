@@ -730,7 +730,7 @@
                         </v-card-subtitle>
                         <v-card-actions>
                           <v-radio-group v-model="puntajeImpacto">
-                            <v-radio :value="1"> </v-radio>
+                            <v-radio :value="1"></v-radio>
                           </v-radio-group>
                         </v-card-actions>
                       </v-card-title>

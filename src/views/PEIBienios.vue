@@ -79,7 +79,7 @@
             </v-data-table>
           </v-col>
           <div style="text-align: center">
-            <span class="title">6. Técnica</span>
+            <span class="title">7. Técnica</span>
           </div>
           <v-col cols="12" sm="6" md="6">
             <v-data-table
@@ -90,8 +90,22 @@
               <template v-slot:item.actions="{ item }">
                 <v-icon small class="mr-2"> mdi-eye </v-icon>
               </template>
-            </v-data-table></v-col
-          >
+            </v-data-table>
+          </v-col>
+          <div style="text-align: center">
+            <span class="title">7. Áreas multiples</span>
+          </div>
+          <v-col cols="12" sm="6" md="6">
+            <v-data-table
+              :headers="headers"
+              :items="peitecnica"
+              :hide-default-footer="true"
+            >
+              <template v-slot:item.actions="{ item }">
+                <v-icon small class="mr-2"> mdi-eye </v-icon>
+              </template>
+            </v-data-table>
+          </v-col>
         </v-card-text>
       </v-card>
     </v-container></v-app
