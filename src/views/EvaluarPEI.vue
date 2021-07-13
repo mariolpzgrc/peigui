@@ -1,59 +1,60 @@
 <template>
   <v-app>
-    <v-container>
-      <v-card-title class="headline"> Evaluación </v-card-title>
-      <v-row class="pa-4">
-        <v-col cols="5">
-          <v-treeview
-            :active.sync="active"
-            :items="items"
-            :load-children="fetchPeis"
-            activatable
-            :open.sync="open"
-            color="warning"
-            open-on-click
-            transition
-          >
-            <template v-slot:prepend="{ item }">
-              <v-icon v-if="!item.children"> mdi-file-pdf </v-icon>
-            </template>
-          </v-treeview>
-        </v-col>
-        <v-divider vertical></v-divider>
-        <v-col class="d-flex text-center">
-          <v-scroll-y-transition mode="out-in">
-            <div
-              v-if="!selected"
-              class="title grey--text text--lighten-1 font-weight-light"
-              style="align-self: center"
+    <div class="container" style="margin: auto; width: 50%">
+      <v-container>
+        <v-card-title class="headline"> Evaluación </v-card-title>
+        <v-row class="pa-4">
+          <v-col cols="5">
+            <v-treeview
+              :active.sync="active"
+              :items="items"
+              :load-children="fetchPeis"
+              activatable
+              :open.sync="open"
+              color="warning"
+              open-on-click
+              transition
             >
-              Seleccione un Proyecto Educativo Innovador
-            </div>
-            <v-card
-              v-else
-              :key="selected.id"
-              class="pt-6 mx-auto"
-              flat
-              max-width="400"
-            >
-              <v-card-text>
-                <h3 class="headline mb-2">
-                  {{ selected.nombreProyecto }}
-                </h3>
-                <div class="blue--text mb-2">
-                  {{ selected.descripcion }}
-                </div>
-                <div class="blue--text subheading font-weight-bold">
-                  {{ selected.fechaInicio }}
-                </div>
-                <div class="blue--text subheading font-weight-bold">
-                  {{ selected.fechaTermino }}
-                </div>
-              </v-card-text>
-            </v-card>
-            <v-divider></v-divider>
-            <v-row class="text-left" tag="v-card-text">
-              <!--<v-tooltip bottom>
+              <template v-slot:prepend="{ item }">
+                <v-icon v-if="!item.children"> mdi-file-pdf </v-icon>
+              </template>
+            </v-treeview>
+          </v-col>
+          <v-divider vertical></v-divider>
+          <v-col class="d-flex text-center">
+            <v-scroll-y-transition mode="out-in">
+              <div
+                v-if="!selected"
+                class="title grey--text text--lighten-1 font-weight-light"
+                style="align-self: center"
+              >
+                Seleccione un Proyecto Educativo Innovador
+              </div>
+              <v-card
+                v-else
+                :key="selected.id"
+                class="pt-6 mx-auto"
+                flat
+                max-width="400"
+              >
+                <v-card-text>
+                  <h3 class="headline mb-2">
+                    {{ selected.nombreProyecto }}
+                  </h3>
+                  <div class="blue--text mb-2">
+                    {{ selected.descripcion }}
+                  </div>
+                  <div class="blue--text subheading font-weight-bold">
+                    {{ selected.fechaInicio }}
+                  </div>
+                  <div class="blue--text subheading font-weight-bold">
+                    {{ selected.fechaTermino }}
+                  </div>
+                </v-card-text>
+              </v-card>
+              <v-divider></v-divider>
+              <v-row class="text-left" tag="v-card-text">
+                <!--<v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn depressed v-bind="attrs" v-on="on"> Ver PEI </v-btn>
                 </template>
@@ -62,26 +63,32 @@
               <template>
                 <v-row justify="center"></v-row>
               </template>-->
-            </v-row>
-          </v-scroll-y-transition>
-        </v-col>
-        <v-row justify="center" class="text-left" tag="v-card-text">
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn depressed v-bind="attrs" v-on="on"> Ver PEI </v-btn>
-            </template>
-            <span>Al dar clic se abrira el PEI en una nueva pestaña</span>
-          </v-tooltip>
-        </v-row>
-        <v-row justify="center" class="text-left" tag="v-card-text">
-          <v-tooltip>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn depressed v-bind="attrs" v-on="on" :to="{name: 'evaluandoPei'}">Evaluar PEI</v-btn>
-            </template>
-            <span>Hay dar clic puede evaluar el PEI</span>
-          </v-tooltip>
-        </v-row>
-        <!--<template>
+              </v-row>
+            </v-scroll-y-transition>
+          </v-col>
+          <v-row justify="center" class="text-left" tag="v-card-text">
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn depressed v-bind="attrs" v-on="on"> Ver PEI </v-btn>
+              </template>
+              <span>Al dar clic se abrira el PEI en una nueva pestaña</span>
+            </v-tooltip>
+          </v-row>
+          <v-row justify="center" class="text-left" tag="v-card-text">
+            <v-tooltip>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  depressed
+                  v-bind="attrs"
+                  v-on="on"
+                  :to="{ name: 'evaluandoPei' }"
+                  >Evaluar PEI</v-btn
+                >
+              </template>
+              <span>Hay dar clic puede evaluar el PEI</span>
+            </v-tooltip>
+          </v-row>
+          <!--<template>
           <v-row justify="center">
             <v-dialog v-model="dialogEvaluar" persistent max-width="600px">
               <template v-slot:activator="{ on, attrs }">
@@ -126,8 +133,9 @@
             </v-dialog>
           </v-row>
         </template>-->
-      </v-row>
-    </v-container>
+        </v-row>
+      </v-container>
+    </div>
   </v-app>
 </template>
 

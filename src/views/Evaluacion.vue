@@ -515,64 +515,37 @@
                 que representa 3 puntos.
               </div>
             </v-card-text>
-            <v-row>
-              <v-col cols="12">
-                <v-card color="#B278F2" class="white--text mt-6">
-                  <v-row>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title
-                        class="d-flex flex-row headline justify-center"
-                        flat
-                        tile
-                      >
-                        Criterio de <br />Evaluación
-                      </v-card-title>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title
-                        class="d-flex flex-row headline justify-center"
-                        flat
-                        tile
-                      >
-                        Cumple <br />
-                        Totalmente
-                      </v-card-title>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title
-                        class="d-flex flex-row headline justify-center"
-                        flat
-                        tile
-                      >
-                        Cumple <br />parcialmente
-                      </v-card-title>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title
-                        class="d-flex headline justify-center"
-                        flat
-                        tile
-                      >
-                        Cumple con lo <br />minimo
-                      </v-card-title>
-                    </v-col>
-                  </v-row>
-                </v-card>
-                <v-card flat class="white--text mt-2">
-                  <v-row>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-subtitle flat tile>
-                        <v-card-title> Pertinencia</v-card-title>
+            <v-simple-table
+              class="equalDivide"
+              cellpadding="0"
+              cellspacing="0"
+              width="100%"
+              border="0"
+            >
+              <template v-slot:default>
+                <thead bgcolor="#B278F2" class="white--text mt-8">
+                  <th class="text-center">Criterio de evaluación</th>
+                  <th class="text-center">Cumple totalmente</th>
+                  <th class="text-center">Cumple parcialmente</th>
+                  <th class="text-center">Cumple con lo minimo</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td widthwidth="25%">
+                      <div style="text-align: justify">
+                        <v-card-title>Pertinencia</v-card-title>
                         <v-card-subtitle>
                           Con una necesidad vinculada a los aprendizajes de los
-                          estudiantes <br /><br />
-                          Mín 1 – Max 3 puntos
+                          estudiantes
                         </v-card-subtitle>
-                      </v-card-subtitle>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title class="justify-center" tile>
-                        <v-card-subtitle flat tile>
+                        <v-card-subtitle>
+                          Min 1 - Max 3 puntos
+                        </v-card-subtitle>
+                      </div>
+                    </td>
+                    <td width="25%">
+                      <div style="text-align: justify">
+                        <v-card-text>
                           Da respuesta a una necesidad vinculada a los
                           aprendizajes de los estudiantes, en entornos sociales,
                           tendencias y emergencias de las profesiones y de sus
@@ -581,164 +554,169 @@
                           una Experiencia Educativa o un conjunto de ellas; o
                           bien, desde otros ámbitos del currículum en el nivel
                           superior
-                        </v-card-subtitle>
-                        <v-card-actions>
+                        </v-card-text>
+                      </div>
+                      <div>
+                        <v-card-actions class="justify-center">
                           <v-radio-group v-model="puntajePertinencia">
                             <v-radio :value="3"> </v-radio>
                           </v-radio-group>
                         </v-card-actions>
-                      </v-card-title>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title class="justify-center" tile>
-                        <v-card-subtitle flat tile>
+                      </div>
+                    </td>
+                    <td width="25%">
+                      <div style="text-align: justify">
+                        <v-card-text>
                           Se identifica de forma clara una necesidad académica o
                           profesional contextualizada, sin embargo, no se
                           reconocen las herramientas o estrategias para
                           satisfacerla
-                        </v-card-subtitle>
-                        <v-card-actions>
+                        </v-card-text>
+                      </div>
+                      <div>
+                        <v-card-actions class="justify-center">
                           <v-radio-group v-model="puntajePertinencia">
-                            <v-radio :value="2"> </v-radio>
+                            <v-radio :value="2"></v-radio>
                           </v-radio-group>
                         </v-card-actions>
-                      </v-card-title>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title class="justify-center" tile>
-                        <v-card-subtitle>
+                      </div>
+                    </td>
+                    <td width="25%">
+                      <div>
+                        <v-card-text>
                           Solo se presenta el abordaje habitual de una
                           Experiencia Educativa o un conjunto de ellas.
-                        </v-card-subtitle>
-                        <v-card-actions>
+                        </v-card-text>
+                      </div>
+                      <div>
+                        <v-card-actions class="justify-center">
                           <v-radio-group v-model="puntajePertinencia">
-                            <v-radio :value="1"> </v-radio
-                          ></v-radio-group>
-                        </v-card-actions>
-                      </v-card-title>
-                    </v-col>
-                  </v-row>
-                </v-card>
-                <v-card flat class="white--text">
-                  <v-row>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-subtitle flat tile>
-                        <v-card-title>Congruencia</v-card-title>
-                        <v-card-subtitle>
-                          Con los desafios del MEIF
-                          <b>
-                            <ul>
-                              <li>Formación integral del estudiante</li>
-                              <li>Temas transversales</li>
-                              <li>Innovación educativa</li>
-                            </ul>
-                          </b>
-                          <br /><br />
-                          Mín 1 – Max 3 puntos
-                        </v-card-subtitle>
-                      </v-card-subtitle>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title class="justify-center" tile>
-                        <v-card-subtitle flat tile>
-                          Es consistente con los desafíos señalados en el Modelo
-                          Educativo Integral y Flexible como la formación
-                          integral del estudiante, temas transversales e
-                          innovación educativa
-                        </v-card-subtitle>
-                        <v-card-actions>
-                          <v-radio-group v-model="puntajeCongruencia">
-                            <v-radio :value="3"> </v-radio>
-                          </v-radio-group>
-                        </v-card-actions>
-                      </v-card-title>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title class="justify-center" tile>
-                        <v-card-subtitle flat tile>
-                          Se describe la presencia de una innovación educativa
-                          generando algo nuevo, transformador y valioso en los
-                          procesos educativos.
-                        </v-card-subtitle>
-                        <v-card-actions>
-                          <v-radio-group v-model="puntajeCongruencia">
-                            <v-radio :value="2"> </v-radio>
-                          </v-radio-group>
-                        </v-card-actions>
-                      </v-card-title>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title class="justify-center" tile>
-                        <v-card-subtitle>
-                          Es coherente con la intención del perfil de egreso,
-                          sin integrar el acercamiento de otros desafios del
-                          MEIF
-                        </v-card-subtitle>
-                        <v-card-actions>
-                          <v-radio-group v-model="puntajeCongruencia">
-                            <v-radio :value="1"> </v-radio>
-                          </v-radio-group>
-                        </v-card-actions>
-                      </v-card-title>
-                    </v-col>
-                  </v-row>
-                </v-card>
-                <v-card flat class="white--text">
-                  <v-row>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-subtitle flat tile>
-                        <v-card-title> Impacto</v-card-title>
-                        <v-card-subtitle>
-                          En formación del estudiante <br /><br />
-                          Mín 1 – Max 3 puntos
-                        </v-card-subtitle>
-                      </v-card-subtitle>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title class="justify-center" tile>
-                        <v-card-subtitle flat tile>
-                          Se detalla de forma clara el efecto de la
-                          intervención, positivo o negativo, intencionales o no,
-                          que se tiene sobre la formación profesional de la
-                          comunidad estudiantil
-                        </v-card-subtitle>
-                        <v-card-actions>
-                          <v-radio-group v-model="puntajeImpacto">
-                            <v-radio :value="3"> </v-radio>
-                          </v-radio-group>
-                        </v-card-actions>
-                      </v-card-title>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title class="justify-center" tile>
-                        <v-card-subtitle flat tile>
-                          Expone los hallazgos sin analizar efecto de la
-                          intervención sobre la formación profesional del la
-                          comunidad estudiantil
-                        </v-card-subtitle>
-                        <v-card-actions>
-                          <v-radio-group v-model="puntajeImpacto">
-                            <v-radio :value="2"> </v-radio>
-                          </v-radio-group>
-                        </v-card-actions>
-                      </v-card-title>
-                    </v-col>
-                    <v-col cols="3" sm="3" md="3">
-                      <v-card-title class="justify-center" tile>
-                        <v-card-subtitle>
-                          Solo expone algunos hallazgos.
-                        </v-card-subtitle>
-                        <v-card-actions>
-                          <v-radio-group v-model="puntajeImpacto">
                             <v-radio :value="1"></v-radio>
                           </v-radio-group>
                         </v-card-actions>
-                      </v-card-title>
-                    </v-col>
-                  </v-row>
-                </v-card>
-              </v-col>
-            </v-row>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="25%">
+                      <div style="text-align: justify">
+                        <v-card-title>Congruencia</v-card-title>
+                        <v-card-subtitle>
+                          Con los desafíos del MEIF
+                          <ul>
+                            <li>Formación integral del estudiante</li>
+                            <li>Temas transversales</li>
+                            <li>Innovación educativa</li>
+                          </ul>
+                        </v-card-subtitle>
+                        <v-card-subtitle>
+                          Min 1 - Max 3 puntos
+                        </v-card-subtitle>
+                      </div>
+                    </td>
+                    <td width="25%">
+                      <div style="text-align: justify">
+                        Es consistente con los desafíos señalados en el Modelo
+                        Educativo Integral y Flexible como la formación integral
+                        del estudiante, temas transversales e innovación
+                        educativa.
+                      </div>
+                      <div>
+                        <v-card-actions class="justify-center">
+                          <v-radio-group v-model="puntajeCongruencia">
+                            <v-radio :value="3"> </v-radio>
+                          </v-radio-group>
+                        </v-card-actions>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="text-align: justify">
+                        Se describe la presencia de una innovación educativa
+                        generando algo nuevo, transformador y valioso en los
+                        procesos educativos.
+                      </div>
+                      <div>
+                        <v-card-actions class="justify-center">
+                          <v-radio-group v-model="puntajeCongruencia">
+                            <v-radio :value="2"></v-radio>
+                          </v-radio-group>
+                        </v-card-actions>
+                      </div>
+                    </td>
+                    <td width="25%">
+                      <div style="text-align: justify">
+                        <v-card-text>
+                          Es coherente con la intención del perfil de egreso,
+                          sin integrar el acercamiento de otros desafios del
+                          MEIF.
+                        </v-card-text>
+                      </div>
+                      <div>
+                        <v-card-actions class="justify-center">
+                          <v-radio-group v-model="puntajeCongruencia">
+                            <v-radio :value="1"></v-radio>
+                          </v-radio-group>
+                        </v-card-actions>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="25%">
+                      <div style="text-align: justify">
+                        <v-card-title>Impacto</v-card-title>
+                        <v-card-subtitle>
+                          En formación del estudiante
+                        </v-card-subtitle>
+                        <v-card-subtitle>
+                          Min 1 - Max 3 puntos
+                        </v-card-subtitle>
+                      </div>
+                    </td>
+                    <td width="25%">
+                      <div style="text-align: justify">
+                        Se detalla de forma clara el efecto de la intervención,
+                        positivo o negativo, intencionales o no, que se tiene
+                        sobre la formación profesional de la comunidad
+                        estudiantil.
+                      </div>
+                      <div>
+                        <v-card-actions class="justify-center">
+                          <v-radio-group v-model="puntajeImpacto">
+                            <v-radio :value="3"> </v-radio>
+                          </v-radio-group>
+                        </v-card-actions>
+                      </div>
+                    </td>
+                    <td width="25%">
+                      <div style="text-align: justify">
+                        Expone los hallazgos sin analizar efecto de la
+                        intervención sobre la formación profesional del la
+                        comunidad estudiantil.
+                      </div>
+                      <div>
+                        <v-card-actions class="justify-center">
+                          <v-radio-group v-model="puntajeImpacto">
+                            <v-radio :value="2"> </v-radio>
+                          </v-radio-group>
+                        </v-card-actions>
+                      </div>
+                    </td>
+                    <td width="25%">
+                      <div style="text-align: justify">
+                        Solo expone algunos hallazgos.
+                      </div>
+                      <div>
+                        <v-card-actions class="justify-center">
+                          <v-radio-group v-model="puntajeImpacto">
+                            <v-radio :value="1"> </v-radio>
+                          </v-radio-group>
+                        </v-card-actions>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
             <div class="justify-center">
               <v-card flat>
                 <v-card-title class="headline">Dictamen final</v-card-title>

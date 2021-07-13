@@ -15,8 +15,8 @@ export default {
             },
             { text: 'Nombre completo', value: 'nombre' },
             { text: 'Entidad Académica', value: 'entidadAcademica'},
-            { text: 'Porgrama Educativo', value: 'programaEducativo'},
-            { text: 'Region', value: 'region'}
+            { text: 'Programa Educátivo', value: 'programaEducativo'},
+            { text: 'Región', value: 'region'}
         ],
     }),
 

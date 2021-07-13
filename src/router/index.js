@@ -26,7 +26,7 @@ const routes = [
     component: Principal,
     children: [
       {
-        path: '',
+        path: 'lineamientos',
         component: Lineamientos
       },
       {

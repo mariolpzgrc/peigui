@@ -1,12 +1,12 @@
 export default {
 
     data: () => ({
-        activeTab: `/principal/`,
+        activeTab: null,
         tabs: [
-            { id: 1, name: "Lineamientos ", route: `/principal/` },
-            { id: 2, name: "Invitación", route: `/principal/invitacion` },
+            { id: 1, name: "Pautas académicas ", route: `/principal/lineamientos` },//pautasacademicas url
+            { id: 2, name: "Invitación", route: `/principal/invitacion` }, // se va a cambiar yse integraran los enlaces de la plataforma
             { id: 3, name: "Registro PEI", route: `/principal/registro-pei` },
-            { id: 4, name: 'Casos exitosos bienios anteriores', route: `/principal/peis-exitosos` },
+            { id: 4, name: 'Ejemplos de PEI', route: `/principal/peis-exitosos` },
             { id: 5, name: 'Evaluar PEI', route: `/principal/evaluacion` },
             { id: 6, name: 'Estadísticas' },
         ],

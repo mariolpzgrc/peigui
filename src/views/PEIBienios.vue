@@ -1,115 +1,47 @@
 <template>
   <v-app>
-    <v-container>
-      <v-card>
-        <v-card-title style="text-align: center">
-          <span class="title"
-            >Ejemplos de Proyecto Educativos Innovadores exitosos
-          </span>
-        </v-card-title>
-        <v-card-text>
-          <div style="text-align: center">
-            <span class="title">1. Artes</span>
-          </div>
-          <v-col cols="12" sm="6" md="6">
-            <v-data-table
-              :headers="headers"
-              :items="peiArtes"
-              :hide-default-footer="true"
-            >
-              <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2"> mdi-eye </v-icon>
-              </template>
-            </v-data-table></v-col
-          >
-          <div style="text-align: center">
-            <span class="title">2. Ciencias Biológico Agropecuarias</span>
-          </div>
-          <v-col cols="12" sm="6" md="6">
-            <v-data-table
-              :headers="headers"
-              :items="peiAgropecuarias"
-              :hide-default-footer="true"
-            >
-              <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2"> mdi-eye </v-icon>
-              </template>
-            </v-data-table></v-col
-          >
-          <div style="text-align: center">
-            <span class="title">3. Ciencias de la Salud</span>
-          </div>
-          <v-col cols="12" sm="6" md="6">
-            <v-data-table
-              :headers="headers"
-              :items="peiSalud"
-              :hide-default-footer="true"
-            >
-              <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2"> mdi-eye </v-icon>
-              </template>
-            </v-data-table></v-col
-          >
-          <div style="text-align: center">
-            <span class="title">4. Económico Administrativa</span>
-          </div>
-          <v-col cols="12" sm="6" md="6">
-            <v-data-table
-              :headers="headers"
-              :items="peiEcoAdmin"
-              :hide-default-footer="true"
-            >
-              <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2"> mdi-eye </v-icon>
-              </template>
-            </v-data-table>
-          </v-col>
-          <div style="text-align: center">
-            <span class="title">5. Humanidades</span>
-          </div>
-          <v-col cols="12" sm="6" md="6">
-            <v-data-table
-              :headers="headers"
-              :items="peiHumanidades"
-              :hide-default-footer="true"
-            >
-              <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2"> mdi-eye </v-icon>
-              </template>
-            </v-data-table>
-          </v-col>
-          <div style="text-align: center">
-            <span class="title">7. Técnica</span>
-          </div>
-          <v-col cols="12" sm="6" md="6">
-            <v-data-table
-              :headers="headers"
-              :items="peitecnica"
-              :hide-default-footer="true"
-            >
-              <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2"> mdi-eye </v-icon>
-              </template>
-            </v-data-table>
-          </v-col>
-          <div style="text-align: center">
-            <span class="title">7. Áreas multiples</span>
-          </div>
-          <v-col cols="12" sm="6" md="6">
-            <v-data-table
-              :headers="headers"
-              :items="peitecnica"
-              :hide-default-footer="true"
-            >
-              <template v-slot:item.actions="{ item }">
-                <v-icon small class="mr-2"> mdi-eye </v-icon>
-              </template>
-            </v-data-table>
-          </v-col>
-        </v-card-text>
-      </v-card>
-    </v-container></v-app
-  >
+    <div class="container" style="margin; auto; width: 50%">
+      <v-container>
+        <v-card class="mx-auto" flat>
+          <v-row>
+            <v-col cols="12" sm="10" md="10">
+              <v-card-title>
+                <span class="headline">
+                  Ejemplos de Proyectos Educativos Innovadores</span
+                >
+              </v-card-title>
+            </v-col>
+            <v-col cols="12" md="10" sm="10">
+              <div align="center">
+                <v-combobox
+                  multiple
+                  outlined
+                  label="Seleccione el(las) áreas académicas"
+                >
+                </v-combobox>
+              </div>
+            </v-col>
+            <v-col cols="12" md="12" sm="12">
+              <v-simple-table>
+                <template v-slot:default>
+                  <thead>
+                    <tr>
+                      <th class="text-left">Nombre del PEI</th>
+                      <th class="text-left">Archivo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="item in desserts" :key="item.name">
+                      <td>{{ item.name }}</td>
+                      <td>{{ item.calories }}</td>
+                    </tr>
+                  </tbody>
+                </template>
+              </v-simple-table>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-container>
+    </div>
+  </v-app>
 </template>
-
-<script src="./JS/PEIsBienios.js"></script>

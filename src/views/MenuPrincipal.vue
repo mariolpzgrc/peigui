@@ -21,6 +21,7 @@
       <v-spacer></v-spacer>
       <template v-slot:extension>
         <v-tabs v-model="activeTab" align-with-title slider-color="white">
+          <v-tabs-slider color="purple"></v-tabs-slider>
           <v-tab v-for="tab in tabs" :key="tab.id" :to="tab.route" exact>
             {{ tab.name }}
           </v-tab>

@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-container>
-      <v-row lign="center" justify="center">
+    <div class="container" style="margin: auto; width: 50%">
+      <v-row align="center" justify="center">
         <h1>Generación de actas de evaluación</h1>
       </v-row>
       <v-row lign="center" justify="center">
@@ -34,12 +34,10 @@
           ></v-data-table>
         </template>
         <template v-slot:item.actions="{ item }">
-          <v-icon small class="mr-2">
-            mdi-file-document
-          </v-icon>
+          <v-icon small class="mr-2"> mdi-file-document </v-icon>
         </template>
       </v-row>
-    </v-container>
+    </div>
   </v-app>
 </template>
 <script src="./JS/actaEvaluacionPEI.js">
